@@ -24,6 +24,8 @@ BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(glib-2.0) >= 2.21.6
 BuildRequires:  pkgconfig(gthread-2.0)
 BuildRequires:  pkgconfig(gio-2.0) >= 2.24.0
+BuildRequires:  pkgconfig(libgcrypt)
+BuildRequires:  pkgconfig(libsoup-2.4)
 BuildRequires:  gettext
 BuildRequires:  perl(XML::Parser)
 BuildRequires:  intltool
@@ -56,7 +58,7 @@ echo "EXTRA_DIST = missing-gtk-doc" > gtk-doc.make
 NOCONFIGURE=1 REQUIRED_PKG_CONFIG_VERSION=0.17.1 REQUIRED_AUTOMAKE_VERSION=1.9 USE_GNOME2_MACROS=1 . gnome-autogen.sh --disable-gtk-doc
 # << build pre
 
-%configure --disable-static
+%configure --disable-static --disable-introspection
 make %{?jobs:-j%jobs}
 
 # >> build post
