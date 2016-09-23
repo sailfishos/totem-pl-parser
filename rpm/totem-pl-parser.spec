@@ -1,6 +1,6 @@
 Name:       totem-pl-parser
 Summary:    Totem Playlist Parser library
-Version:    3.10.5
+Version:    3.10.7
 Release:    1
 Group:      System/Libraries
 License:    LGPLv2+
