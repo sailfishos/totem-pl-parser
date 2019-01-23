@@ -32,6 +32,13 @@ Requires:   %{name} = %{version}-%{release}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+
+%description doc
+%{summary}.
 
 %prep
 %setup -q -n %{name}-%{version}/%{name}
@@ -43,6 +50,10 @@ developing applications that use %{name}.
 %install
 %meson_install
 
+mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
+install -m0644 -t %{buildroot}%{_docdir}/%{name}-%{version} \
+        AUTHORS NEWS README
+
 %find_lang %{name} --with-gnome
 
 %post -p /sbin/ldconfig
@@ -51,7 +62,7 @@ developing applications that use %{name}.
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING.LIB NEWS README
+%license COPYING.LIB
 %{_libdir}/*.so.*
 %{_libdir}/girepository-1.0/TotemPlParser-1.0.typelib
 
@@ -60,6 +71,8 @@ developing applications that use %{name}.
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-#%{_datadir}/gtk-doc/html/totem-pl-parser
 %{_datadir}/gir-1.0/TotemPlParser-1.0.gir
 
+%files doc
+%defattr(-,root,root,-)
+%{_docdir}/%{name}-%{version}
