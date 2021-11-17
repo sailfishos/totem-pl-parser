@@ -1,14 +1,12 @@
 Name:       totem-pl-parser
 Summary:    Totem Playlist Parser library
-Version:    3.26.1
+Version:    3.26.6
 Release:    1
-Group:      System/Libraries
 License:    LGPLv2+
 URL:        http://www.gnome.org/projects/totem/
-Source0:    http://download.gnome.org/sources/%{name}/3.26/%{name}-%{version}.tar.bz2
+Source0:    %{name}-%{version}.tar.bz2
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
-BuildRequires:  pkgconfig(gmime-2.6)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(glib-2.0) >= 2.21.6
 BuildRequires:  pkgconfig(gthread-2.0)
@@ -25,7 +23,6 @@ A library to parse and save playlists, as used in music and movie players.
 
 %package devel
 Summary:    Development files for %{name}
-Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
@@ -34,7 +31,6 @@ developing applications that use %{name}.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
@@ -44,7 +40,7 @@ Requires:  %{name} = %{version}-%{release}
 %setup -q -n %{name}-%{version}/%{name}
 
 %build
-%meson -Denable-gtk-doc=false
+%meson -Denable-gtk-doc=false -Denable-libgcrypt=true -Denable-libarchive=false
 %meson_build
 
 %install
@@ -52,7 +48,7 @@ Requires:  %{name} = %{version}-%{release}
 
 mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
 install -m0644 -t %{buildroot}%{_docdir}/%{name}-%{version} \
-        AUTHORS NEWS README
+        AUTHORS NEWS README.md
 
 %find_lang %{name} --with-gnome
 
@@ -65,6 +61,7 @@ install -m0644 -t %{buildroot}%{_docdir}/%{name}-%{version} \
 %license COPYING.LIB
 %{_libdir}/*.so.*
 %{_libdir}/girepository-1.0/TotemPlParser-1.0.typelib
+%{_libexecdir}/totem-pl-parser/
 
 %files devel
 %defattr(-,root,root,-)
