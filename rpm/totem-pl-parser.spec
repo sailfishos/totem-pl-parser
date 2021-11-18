@@ -40,7 +40,7 @@ Requires:  %{name} = %{version}-%{release}
 %setup -q -n %{name}-%{version}/%{name}
 
 %build
-%meson -Denable-gtk-doc=false -Denable-libgcrypt=true -Denable-libarchive=false
+%meson -Denable-gtk-doc=false -Denable-libgcrypt=yes -Denable-libarchive=no
 %meson_build
 
 %install
