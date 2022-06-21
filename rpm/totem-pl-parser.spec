@@ -4,8 +4,8 @@ Version:    3.26.1
 Release:    1
 Group:      System/Libraries
 License:    LGPLv2+
-URL:        http://www.gnome.org/projects/totem/
-Source0:    http://download.gnome.org/sources/%{name}/3.26/%{name}-%{version}.tar.bz2
+URL:        https://github.com/sailfishos/totem-pl-parser
+Source0:    %{name}-%{version}.tar.bz2
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(gmime-2.6)
