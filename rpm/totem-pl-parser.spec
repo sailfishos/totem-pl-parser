@@ -3,7 +3,7 @@ Summary:    Totem Playlist Parser library
 Version:    3.26.6
 Release:    1
 License:    LGPLv2+
-URL:        http://www.gnome.org/projects/totem/
+URL:        https://github.com/sailfishos/totem-pl-parser
 Source0:    %{name}-%{version}.tar.bz2
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
