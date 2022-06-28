@@ -1,3 +1,3 @@
 [submodule "totem-pl-parser"]
 	path = totem-pl-parser
-	url = https://gitlab.gnome.org/GNOME/totem-pl-parser.git
+	url = https://github.com/sailfishos-mirror/totem-pl-parser.git
